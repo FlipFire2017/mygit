@@ -1,10 +1,11 @@
 #include "stm8s.h"
 
-
+#define BIT6  	0x0040
 //bool GPIO_ReadInputPin(GPIOC, GPIO_PIN_4);
 
 unsigned char  U8FLAG=0,U8temp=0;
-unsigned char  U8T_data_H=0,U8T_data_L=0,U8RH_data_H=0,U8RH_data_L=0,U8checkdata=0;
+unsigned char  U8T_data_H,U8T_data_L=0,U8RH_data_H=0,U8RH_data_L=0,U8checkdata=0;
+
 unsigned char str[5];
 
 
@@ -29,7 +30,66 @@ void delay_ms(u16 ms)
     while (ms--)
         delay_us(1000);
 }
+void uart1Init(void)
+{
+        UART1_DeInit();
+	UART1_Init((u32)9600, UART1_WORDLENGTH_8D, UART1_STOPBITS_1, UART1_PARITY_NO, UART1_SYNCMODE_CLOCK_DISABLE, UART1_MODE_TXRX_ENABLE);//9600 8  1 无校验  发送接收允许
+        UART1_ClearFlag(UART1_FLAG_RXNE);
+        UART1_ITConfig(UART1_IT_RXNE_OR, ENABLE);//接收中断
+}
+void clearUartStatus(void)
+{
+  __disable_interrupt();
 
+  __enable_interrupt();
+}
+void UART1_SendByte(uint8_t Data)
+{
+  while((UART1_GetFlagStatus(UART1_FLAG_TXE)==RESET));
+  UART1_SendData8(Data);
+  while((UART1_GetFlagStatus(UART1_FLAG_TC)==RESET));
+}
+void UART1_Printf(uint8_t *String)
+{
+  while((*String) != '\0')
+  {
+    UART1_SendByte(*String);
+    String++;
+  }
+}
+
+
+
+u8 uartSendService(u8 *pdat,u8 len)
+{
+  u16 timeOut=0;
+  u8 err=0;
+  while(len)
+  {
+    UART1->SR&=~BIT6;
+    UART1->DR =*pdat;
+    
+    pdat++;
+    len--;
+    timeOut = 32000;
+    
+    while((!(UART1->SR&BIT6)))
+    {
+      timeOut -- ;
+	if(!timeOut)
+	{
+	  break;
+	  }
+    }
+      
+    if(!timeOut)
+    {
+      err = 1;
+      break;
+    	}
+  }
+  return err;
+}
 unsigned char COM(void)
       {
      
@@ -113,27 +173,33 @@ void RH(void)
 
 	}
 
-
-
-
-
-
-
-
-
-
-
-
+unsigned char CharToHex(unsigned char bHex)
+{
+	if((bHex>=0)&&(bHex<=9))
+	{
+		bHex += 0x30;
+	}
+	else if((bHex>=10)&&(bHex<=15))//Capital
+	{
+		bHex += 0x37;
+	}
+	else 
+	{
+		bHex = 0xff;
+	}
+	return bHex;
+}
 
 
 int main( void )
 {
 
   CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
-  
+  uart1Init();
   while (1)
     
   {
+    unsigned char temp=0;
  GPIO_Init(GPIOC, GPIO_PIN_3, GPIO_MODE_OUT_PP_LOW_FAST);
  GPIO_WriteLow(GPIOC, GPIO_PIN_3);
     	   //------------------------
@@ -142,10 +208,18 @@ int main( void )
 	   //串口显示程序 
 
 	   str[0]=U8RH_data_H;
+           uart1Init();
+           UART1_Printf((uint8_t*)"RH AND T IS");
+           temp=CharToHex(0x01);
+           uartSendService(0x31,1);
 	   str[1]=U8RH_data_L;
+           
 	   str[2]=U8T_data_H;
+           
 	   str[3]=U8T_data_L;
+           
 	   str[4]=U8checkdata;
+           
 	    
 	   //读取模块数据周期不易小于 2S 
 	   delay_ms(2000);

@@ -1,18 +1,18 @@
-"D:\Data\Singlechip\STM8\STM8 Test\Libraries\STM8S_StdPeriph_Driver\src\stm8s_clk.c"
+"G:\ST\Stm8\Libraries\STM8S_StdPeriph_Driver\src\stm8s_clk.c"
 -std=c99
 -ferror-limit=0
 -I
-D:\Data\Singlechip\STM8\STM8 Test\Libraries\STM8S_StdPeriph_Driver\inc
+G:\ST\Stm8\project\mygit\..\..\Libraries\STM8S_StdPeriph_Driver\inc
 -I
-D:\Data\Singlechip\STM8\STM8 Test\Project\TRH
+G:\ST\Stm8\project\mygit\TRH
 -I
-D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\stm8\inc
+D:\Program Files\IAR Systems\Embedded Workbench 8.0\stm8\inc
 -I
-D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\stm8\inc\c
+D:\Program Files\IAR Systems\Embedded Workbench 8.0\stm8\inc\c
 -I
-D:\Data\Singlechip\STM8\STM8 Test\Libraries\STM8S_StdPeriph_Driver\inc
+G:\ST\Stm8\Libraries\STM8S_StdPeriph_Driver\inc
 -I
-D:\Data\Singlechip\STM8\STM8 Test\Project\TRH
+G:\ST\Stm8\project\mygit\TRH
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
@@ -261,8 +261,8 @@ D:\Data\Singlechip\STM8\STM8 Test\Project\TRH
 -D__EDG_SYSV=0
 -D__EDG_ANSIC=1
 -D__EDG_CPP11_IL_EXTENSIONS_SUPPORTED=1
--D_DLIB_CONFIG_FILE_HEADER_NAME="D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\stm8\LIB\dlstm8mmn.h"
--D_DLIB_CONFIG_FILE_STRING="D:\\Program Files (x86)\\IAR Systems\\Embedded Workbench 8.0\\stm8\\LIB\\dlstm8mmn.h"
+-D_DLIB_CONFIG_FILE_HEADER_NAME="D:\Program Files\IAR Systems\Embedded Workbench 8.0\stm8\LIB\dlstm8mmn.h"
+-D_DLIB_CONFIG_FILE_STRING="D:\\Program Files\\IAR Systems\\Embedded Workbench 8.0\\stm8\\LIB\\dlstm8mmn.h"
 -D__VERSION__="IAR C/C++ Compiler V3.10.1.201 for STM8"
 -D__CODE_MEMORY_LIST1__()=__CODE_MEM_HELPER1__(__code, 0 )
 -D__CODE_MEMORY_LIST2__(_P1)=__CODE_MEM_HELPER2__(__code, 0 ,  _P1 )

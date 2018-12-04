@@ -2105,6 +2105,9 @@
         <file>
             <name>$PROJ_DIR$\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_gpio.c</name>
         </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_uart1.c</name>
+        </file>
     </group>
     <group>
         <name>SRC</name>

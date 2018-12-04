@@ -23,9 +23,9 @@ param([String]$debugfile = "");
 
 if ($debugfile -eq "")
 {
-& "D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "D:\Data\Singlechip\STM8\STM8 Test\Project\TRH\settings\TRH.Debug.general.xcl" --backend -f "D:\Data\Singlechip\STM8\STM8 Test\Project\TRH\settings\TRH.Debug.driver.xcl" 
+& "D:\Program Files\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "G:\ST\Stm8\project\mygit\settings\TRH.Debug.general.xcl" --backend -f "G:\ST\Stm8\project\mygit\settings\TRH.Debug.driver.xcl" 
 }
 else
 {
-& "D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "D:\Data\Singlechip\STM8\STM8 Test\Project\TRH\settings\TRH.Debug.general.xcl" --debug_file=$debugfile --backend -f "D:\Data\Singlechip\STM8\STM8 Test\Project\TRH\settings\TRH.Debug.driver.xcl" 
+& "D:\Program Files\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "G:\ST\Stm8\project\mygit\settings\TRH.Debug.general.xcl" --debug_file=$debugfile --backend -f "G:\ST\Stm8\project\mygit\settings\TRH.Debug.driver.xcl" 
 }

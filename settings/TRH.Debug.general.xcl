@@ -1,10 +1,10 @@
-"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\stm8\bin\stm8proc.dll" 
+"D:\Program Files\IAR Systems\Embedded Workbench 8.0\stm8\bin\stm8proc.dll" 
 
-"D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\stm8\bin\stm8stlink.dll" 
+"D:\Program Files\IAR Systems\Embedded Workbench 8.0\stm8\bin\stm8stlink.dll" 
 
-"D:\Data\Singlechip\STM8\STM8 Test\Project\TRH\Debug\Exe\TRH.out" 
+"G:\ST\Stm8\project\mygit\Debug\Exe\TRH.out" 
 
---plugin "D:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\stm8\bin\stm8bat.dll" 
+--plugin "D:\Program Files\IAR Systems\Embedded Workbench 8.0\stm8\bin\stm8bat.dll" 
 
 
 

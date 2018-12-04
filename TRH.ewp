@@ -256,8 +256,8 @@
                 </option>
                 <option>
                     <name>CCIncludePath2</name>
-                    <state>D:\Data\Singlechip\STM8\STM8 Test\Libraries\STM8S_StdPeriph_Driver\inc</state>
-                    <state>D:\Data\Singlechip\STM8\STM8 Test\Project\TRH</state>
+                    <state>$PROJ_DIR$\..\..\Libraries\STM8S_StdPeriph_Driver\inc</state>
+                    <state>$PROJ_DIR$\TRH</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -1611,6 +1611,9 @@
         </file>
         <file>
             <name>$PROJ_DIR$\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_gpio.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\STM8S_StdPeriph_Driver\src\stm8s_uart1.c</name>
         </file>
     </group>
     <group>
